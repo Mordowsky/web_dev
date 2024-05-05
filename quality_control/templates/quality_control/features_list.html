@@ -3,7 +3,7 @@
 {% block content %}
     <h1>Список фич</h1>
     <ul>
-        {% for feature in features %}
+        {% for feature in object_list %}
             <li><a href="{% url 'quality_control:feature_detail' feature.id %}">{{ feature.title }}</a> &ensp; {{feature.status}}</li>
         {% endfor %}
     </ul>
