@@ -2,7 +2,8 @@ from django.views import View
 from django.views.generic import DetailView
 from .models import BugReport, FeatureRequest
 from django.shortcuts import get_object_or_404
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from .forms import BugReportForm, FeatureRequestForm
 
 class IndexView(View):
     def get(self, request, *args, **kwargs):
@@ -42,3 +43,23 @@ class FeatureView(DetailView):
     model = FeatureRequest
     pk_url_kwarg='feature_id'
     template_name = 'quality_control/feature_detail.html'
+
+def add_bug(request):
+    if request.method == 'POST':
+        form = BugReportForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('quality_control:bugs_list')
+    else:
+        form = BugReportForm()
+    return render(request, 'quality_control/bug_report_form.html', {'form': form})
+
+def add_feature(request):
+    if request.method == 'POST':
+        form = FeatureRequestForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('quality_control:features_list')
+    else:
+        form = FeatureRequestForm()
+    return render(request, 'quality_control/feature_request_form.html', {'form': form})

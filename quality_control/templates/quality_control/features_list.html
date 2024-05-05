@@ -7,4 +7,5 @@
             <li><a href="{% url 'quality_control:feature_detail' feature.id %}">{{ feature.title }}</a> &ensp; {{feature.status}}</li>
         {% endfor %}
     </ul>
+    <p><a href="{% url 'quality_control:add_feature' %}">Создать новый запрос на фичу</a></p>
 {% endblock %}

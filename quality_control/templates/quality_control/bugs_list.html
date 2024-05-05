@@ -7,4 +7,5 @@
             <li><a href="{% url 'quality_control:bug_detail' bug.id %}">{{ bug.title }}</a> &ensp; {{bug.status}}</li>
         {% endfor %}
     </ul>
+    <p><a href="{% url 'quality_control:add_bug' %}">Создать новый отчет о баге</a></p>
 {% endblock %}

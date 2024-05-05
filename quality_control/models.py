@@ -47,7 +47,7 @@ class BugReport (models.Model):
     priority = models.CharField(max_length=50,
                                 choices=PRIORITY,
                                 default='1')
-    models.IntegerField()
+
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
