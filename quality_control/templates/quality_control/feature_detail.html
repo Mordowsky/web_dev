@@ -1,0 +1,9 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+    <h1>{{object.title}}</h1>
+    <p>ID - {{ object.description }}</p>
+    <p>Описание: {{ object.description }}</p>
+    <p>Статус - {{object.status}}</p>
+    <p>Создан {{object.created_at}}, обновлен {{object.updated_at}}</p>
+{% endblock %}
