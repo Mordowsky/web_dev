@@ -6,4 +6,6 @@
     <p>Описание: {{ object.description }}</p>
     <p>Статус - {{object.status}}</p>
     <p>Создан {{object.created_at}}, обновлен {{object.updated_at}}</p>
+    <p><a href="{% url 'quality_control:feature_update' object.id %}">Изменить запрос на фичу</a></p>
+    <p><a href="{% url 'quality_control:delete_feature' object.id %}"onclick="return confirm('Вы уверены, что хотите удалить этот запрос на фичу?');">Удалить запрос на фичу</a></p>
 {% endblock %}
